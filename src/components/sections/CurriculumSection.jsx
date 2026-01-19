@@ -37,7 +37,7 @@ export const CurriculumSection = () => {
                     <div className="h-10 w-px bg-white/10 hidden md:block" />
                     <div className="text-center md:text-left">
                         <p className="text-secondary font-black text-2xl mb-1">6+ GIỜ NỘI DUNG</p>
-                        <p className="text-gray-500 text-sm">Đi thẳng vào thực chiến, không lý thuyết</p>
+                        <p className="text-gray-500 text-sm">Đi thẳng vào thực chiến, không lý thuyết suông</p>
                     </div>
                 </div>
             </div>

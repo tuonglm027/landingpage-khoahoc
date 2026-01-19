@@ -30,11 +30,12 @@ export const ProblemSection = () => {
             <div className="max-w-6xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black mb-8">
-                        Sắp không <span className="text-primary text-glow-red uppercase italic">Gồng Lỗ</span> nổi với FB!
+                        Bạn không <span className="text-primary text-glow-red uppercase italic mr-4">Cô Đơn</span>!
                     </h2>
                     <p className="text-gray-400 text-lg md:text-xl max-w-4xl mx-auto leading-relaxed font-medium">
-                        Nếu bạn đang đọc những dòng này, có lẽ bạn đang mở <span className="text-white font-bold">Trình quản lý quảng cáo</span> và thở dài ngao ngán. <br className="hidden md:block" />
-                        Những chỉ số <span className="text-green-500 font-bold">"xanh mượt"</span> của năm ngoái giờ thay bằng <span className="text-primary font-bold">màu đỏ lòm</span>, hoặc giá thầu (CPM) cao ngất ngưởng.
+                        Tôi đã cố vấn hơn <span className="text-white font-bold">500 học viên</span> là chủ doanh nghiệp, chuyên gia và marketer. <br className="hidden md:block" />
+                        Nhiều người đổ lỗi cho AI "kém thông minh", quy trình "phức tạp", hay mẫu workflow nhiều "rác"... <br />
+                        Nhưng sự thật là yếu tố then chốt làm cho hệ thống automation hiệu quả là <span className="text-secondary font-bold">"TƯ DUY THIẾT KẾ"</span>.
                     </p>
                 </div>
 
@@ -50,10 +51,10 @@ export const ProblemSection = () => {
                             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded flex items-center justify-center p-1.5 shadow-lg">
                                 <BarChart3 className="text-white" />
                             </div>
-                            <h4 className="font-bold text-gray-200">Ads Manager - Tổng quan chiến dịch</h4>
+                            <h4 className="font-bold text-gray-200">n8n Dashboard - Hiệu suất vận hành</h4>
                         </div>
                         <div className="flex items-center gap-4">
-                            <span className="text-gray-500 text-xs font-medium">28/11/2025</span>
+                            <span className="text-gray-500 text-xs font-medium">19/01/2026</span>
                             <div className="flex gap-1">
                                 <div className="w-2 h-2 rounded-full bg-gray-700" />
                                 <div className="w-2 h-2 rounded-full bg-gray-700" />
@@ -64,19 +65,19 @@ export const ProblemSection = () => {
 
                     {/* Stats Grid */}
                     <div className="p-4 md:p-8 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 bg-[#0F0F0F]">
-                        <StatBox label="CPM" value="285,000đ" sub="↑ 127%" isRed />
-                        <StatBox label="CPC" value="15,200đ" sub="↑ 89%" isRed />
-                        <StatBox label="CPA" value="425,000đ" sub="↑ 156%" isRed />
-                        <StatBox label="ROAS" value="0.8x" sub="↓ 62%" isRed />
+                        <StatBox label="Tác vụ/tháng" value="12,500" sub="↑ Tải nặng" isRed />
+                        <StatBox label="Thời gian chạy" value="482 giờ" sub="↑ 124%" isRed />
+                        <StatBox label="Lỗi Workflow" value="45%" sub="↑ Nghiêm trọng" isRed />
+                        <StatBox label="Hiệu suất" value="3.2x" sub="↓ Thấp hơn kỳ vọng" isRed />
                     </div>
 
                     {/* Graph Section */}
                     <div className="p-6 md:p-10 bg-[#0A0A0A]">
                         <div className="flex justify-between items-center mb-8">
-                            <h5 className="text-sm font-bold text-gray-400">Hiệu suất quảng cáo (30 ngày)</h5>
+                            <h5 className="text-sm font-bold text-gray-400">Thời gian xử lý thủ công (Giờ/Ngày)</h5>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary" />
-                                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Chi phí / Chuyển đổi</span>
+                                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Lãng phí thời gian</span>
                             </div>
                         </div>
 
@@ -118,23 +119,23 @@ export const ProblemSection = () => {
                             <AlertTriangle size={20} className="text-primary shrink-0" />
                         </motion.div>
                         <p className="text-primary text-xs md:text-sm font-black italic">
-                            Cảnh báo: Hiệu suất giảm 67% so với tháng trước. Chi phí tăng, chuyển đổi giảm!
+                            Cảnh báo: Thời gian xử lý thủ công tăng 156%. Hệ thống vận hành đang quá tải và thiếu tư duy tự động hóa!
                         </p>
                     </div>
 
                     {/* Footer Info */}
                     <div className="p-6 md:p-8 bg-[#151515] border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                         <div>
-                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Ngân sách đã chi</p>
-                            <p className="text-xl font-black text-gray-200">45,230,000đ</p>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Giờ lãng phí/tháng</p>
+                            <p className="text-xl font-black text-gray-200">180 Giờ</p>
                         </div>
                         <div className="border-x border-white/5">
-                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Đơn hàng</p>
-                            <p className="text-xl font-black text-primary">127 <span className="text-sm font-medium opacity-60">(Ảo: ~40%)</span></p>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Số lỗi vận hành</p>
+                            <p className="text-xl font-black text-primary">127 <span className="text-sm font-medium opacity-60">(Gây thất thoát lớn)</span></p>
                         </div>
                         <div>
-                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Tỷ lệ hoàn</p>
-                            <p className="text-xl font-black text-primary">23.5%</p>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black mb-2">Nhân sự thủ công</p>
+                            <p className="text-xl font-black text-primary">5-7 Người</p>
                         </div>
                     </div>
                 </motion.div>

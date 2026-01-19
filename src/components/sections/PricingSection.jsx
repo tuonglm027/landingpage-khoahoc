@@ -53,11 +53,11 @@ export const PricingSection = () => {
                                 <Lock size={32} className="text-secondary" />
                             </div>
 
-                            <h3 className="text-3xl md:text-5xl font-black uppercase">MỨC GIÁ ĐANG BỊ <span className="text-secondary text-glow-yellow">ẨN</span></h3>
-                            <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Giá tăng tự động theo số lượng học viên</p>
+                            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight">CHỈ CÒN <span className="text-secondary text-glow-yellow text-6xl md:text-8xl">999.000đ</span></h3>
+                            <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Giá gốc <span className="line-through">3.999.000đ</span> - DUY NHẤT TRONG HÔM NAY</p>
 
                             <button className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4">
-                                BẤM ĐỂ XEM GIÁ HIỆN TẠI
+                                NHẬN ƯU ĐÃI NGAY
                                 <ChevronRight />
                             </button>
 
@@ -73,16 +73,16 @@ export const PricingSection = () => {
                     <div className="space-y-6">
                         <PriceStep
                             label="Sắp tới"
-                            status="Giai đoạn Tăng tốc"
-                            count="Học viên 1200 - 1499"
-                            price="1.890.000đ"
+                            status="Học viên 501 - 1000"
+                            count="Giai đoạn Tăng tốc"
+                            price="1.290.000đ"
                             icon={<Zap />}
                         />
                         <PriceStep
                             label="Tương lai"
-                            status="Giai đoạn ổn định"
-                            count="Từ 1500 trở đi"
-                            price="2.490.000đ"
+                            status="Từ học viên 1001+"
+                            count="Mức giá chính thức"
+                            price="1.890.000đ"
                             icon={<Zap />}
                             isDark
                         />

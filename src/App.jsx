@@ -21,8 +21,6 @@ import { Notification } from './components/layout/Notification'
 function App() {
     return (
         <main className="bg-background text-white selection:bg-primary selection:text-white font-roboto overflow-x-hidden">
-            <Navbar />
-
             <Hero />
             <ProblemSection />
             <AndromedaSystem />

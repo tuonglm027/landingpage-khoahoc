@@ -9,7 +9,8 @@ export const FAQ = () => {
         { q: "Tôi là newbie chưa chạy Ads bao giờ có học được không?", a: "Khóa học đi từ tư duy cơ bản đến kỹ thuật chuyên sâu. Tuy nhiên, nếu bạn đã có kinh nghiệm chạy Ads cơ bản sẽ tiếp thu nhanh hơn." },
         { q: "Nếu Facebook update thuật toán thì sao?", a: "Đây là phương pháp huấn luyện AI dựa trên dữ liệu chuẩn, nó bền vững theo thời gian. Chúng tôi update nội dung mỗi 2 tuần nếu có thay đổi." },
         { q: "Tôi có được hoàn tiền không?", a: "Có! Chúng tôi cam kết hoàn tiền 100% trong vòng 7 ngày đầu tiên nếu bạn áp dụng mà không thấy hiệu quả hoặc cảm thấy không phù hợp." },
-        { q: "Có cần biết Code để cài đặt CAPI không?", a: "Không cần! Chúng tôi hướng dẫn sử dụng các công cụ No-code chuyên dụng, chỉ cần copy-paste theo đúng quy trình." }
+        { q: "Có cần biết Code để cài đặt CAPI không?", a: "Không cần! Chúng tôi hướng dẫn sử dụng các công cụ No-code chuyên dụng (như n8n), chỉ cần copy-paste theo đúng quy trình." },
+        { q: "Chính sách Affiliate khi giới thiệu học viên mới như thế nào?", a: "Chúng tôi có cơ chế hoa hồng cực kỳ hấp dẫn cho các học viên cũ khi chia sẻ giá trị cho người mới. Chi tiết sẽ được hướng dẫn cụ thể trong nhóm SUPPORT 1:1." }
     ]
 
     return (

@@ -4,7 +4,7 @@ import { Rocket } from 'lucide-react'
 import { SectionTitle } from '../shared'
 
 export const ResultsGallery = () => {
-    const categories = ["Fashion", "TPCN / Sức Khỏe", "Dropshipping", "Hàng Gia Dụng"]
+    const categories = ["Fashion", "TPCN / Sức Khỏe", "Nội Thất", "Đào Tạo / Elearning"]
     const [active, setActive] = useState(0)
 
     return (
@@ -36,17 +36,17 @@ export const ResultsGallery = () => {
                         className="space-y-6"
                     >
                         <div className="card-dark border-red-500/20">
-                            <h4 className="text-red-500 font-black mb-4 flex items-center gap-2">TRƯỚC KHI DÙNG GCC</h4>
+                            <h4 className="text-red-500 font-black mb-4 flex items-center gap-2 uppercase tracking-wider text-sm">TRƯỚC KHI TỰ ĐỘNG HÓA</h4>
                             <div className="grid grid-cols-2 gap-4">
-                                <div><p className="text-xs text-gray-500 mb-1">ROAS</p><p className="text-2xl font-black">0.8x - 1.2x</p></div>
-                                <div><p className="text-xs text-gray-500 mb-1">CPA</p><p className="text-2xl font-black">350.000đ</p></div>
+                                <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Thời gian xử lý</p><p className="text-2xl font-black">15-30 Phút</p></div>
+                                <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Nhân sự vận hành</p><p className="text-2xl font-black">3-5 Người</p></div>
                             </div>
                         </div>
                         <div className="card-dark border-green-500/20 bg-green-500/[0.02]">
-                            <h4 className="text-green-500 font-black mb-4 flex items-center gap-2">SAU KHI DÙNG GCC</h4>
+                            <h4 className="text-green-500 font-black mb-4 flex items-center gap-2 uppercase tracking-wider text-sm">SAU KHI CÓ GCC AI</h4>
                             <div className="grid grid-cols-2 gap-4">
-                                <div><p className="text-xs text-gray-500 mb-1">ROAS</p><p className="text-2xl font-black text-green-500">4.5x - 6.0x</p></div>
-                                <div><p className="text-xs text-gray-500 mb-1">CPA</p><p className="text-2xl font-black text-green-500">85.000đ</p></div>
+                                <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Thời gian xử lý</p><p className="text-2xl font-black text-green-500">2-5 Giây</p></div>
+                                <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Hiệu suất</p><p className="text-2xl font-black text-green-500">TỰ ĐỘNG 100%</p></div>
                             </div>
                         </div>
                     </motion.div>

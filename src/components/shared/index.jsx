@@ -6,11 +6,15 @@ export const FloatingBadge = ({ icon, text, top, left, right, bottom, style }) =
     <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bg-gray-900/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2 text-sm text-gray-300 z-50 whitespace-nowrap"
+        className="absolute bg-[#141414]/40 backdrop-blur-sm border border-red-500/10 px-4 py-2 rounded-full flex items-center gap-2.5 z-40 whitespace-nowrap hover:border-red-500/30 transition-all cursor-default group"
         style={{ top, left, right, bottom, ...style }}
     >
-        <span className="text-primary">{icon}</span>
-        {text}
+        <div className="flex items-center gap-2">
+            <span className="text-red-500 group-hover:scale-110 transition-transform">{icon}</span>
+            <span className="text-[11px] font-bold text-gray-400 font-montserrat uppercase tracking-wider group-hover:text-white transition-colors">
+                {text}
+            </span>
+        </div>
     </motion.div>
 )
 

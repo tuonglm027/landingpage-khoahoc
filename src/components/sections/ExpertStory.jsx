@@ -16,29 +16,29 @@ export const ExpertStory = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="text-4xl md:text-7xl font-black mb-12 uppercase leading-tight"
                     >
-                        TÔI ĐÃ MẤT <span className="text-primary text-glow-red italic">20 TỶ</span> TIỀN ADS <br />
+                        TÔI ĐÃ MẤT <span className="text-primary text-glow-red italic">100 TRIỆU</span> TIỀN TOKEN <br />
                         ĐỂ NHẬN RA BÀI HỌC NÀY...
                     </motion.h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-20">
                         <div className="bg-green-500/5 border border-green-500/20 p-8 rounded-[32px] text-left">
-                            <span className="text-green-500 font-black text-2xl mb-4 block">US</span>
-                            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">DROPSHIP MỸ & CHÂU ÂU</p>
-                            <p className="text-white text-sm leading-relaxed">Dữ liệu sạch, khách hàng có thói quen thanh toán trước, AI học cực nhanh.</p>
+                            <span className="text-green-500 font-black text-2xl mb-4 block">THỰC TRẠNG</span>
+                            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">DẠY THEO TEMPLATE</p>
+                            <p className="text-white text-sm leading-relaxed">Họ chỉ dạy cách xây workflow theo mẫu có sẵn, nhưng không ai dạy bạn tư duy hệ thống đúng.</p>
                         </div>
                         <div className="bg-primary/5 border border-primary/20 p-8 rounded-[32px] text-left">
-                            <span className="text-primary font-black text-2xl mb-4 block">VN</span>
-                            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">COD VIỆT NAM</p>
-                            <p className="text-white text-sm leading-relaxed">Đơn ảo, bom hàng, click tặc... AI bị "ngộ độc" dữ liệu và bắt đầu phân phối sai.</p>
+                            <span className="text-primary font-black text-2xl mb-4 block">GIẢI PHÁP</span>
+                            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">TƯ DUY THIẾT KẾ (DESIGN THINKING)</p>
+                            <p className="text-white text-sm leading-relaxed">Khi có tư duy đúng, bạn có thể tự thiết kế và làm chủ mọi hệ thống automation phức tạp nhất.</p>
                         </div>
                     </div>
                 </div>
 
-                {/* About Son Marketing */}
+                {/* About Pham Quang Dat */}
                 <div className="pt-24 border-t border-white/5">
                     <div className="text-center mb-20">
-                        <p className="text-secondary font-black uppercase tracking-[0.4em] text-sm mb-4">The Founder</p>
-                        <h2 className="text-4xl md:text-6xl font-black text-white">VỀ SƠN MARKETING</h2>
+                        <p className="text-secondary font-black uppercase tracking-[0.4em] text-sm mb-4">The Expert</p>
+                        <h2 className="text-4xl md:text-6xl font-black text-white">VỀ PHẠM QUANG ĐẠT</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -54,47 +54,47 @@ export const ExpertStory = () => {
                                     </div>
 
                                     {/* Stats Badges */}
-                                    <StatBadge text="+20 Tỷ Chi Tiêu Ads" top="10%" right="-5%" />
-                                    <StatBadge text="12 Năm Kinh Nghiệm" top="40%" right="-10%" />
-                                    <StatBadge text="+20.000 Học Viên" bottom="20%" right="-5%" />
-                                    <StatBadge text="10 Khóa Học" top="20%" left="-5%" />
-                                    <StatBadge text="+50 Nhãn Hàng" bottom="30%" left="-10%" />
-                                    <StatBadge text="2 Đầu Sách" bottom="10%" left="5%" />
+                                    <StatBadge text="Ex PM Lead One Mount" top="10%" right="-5%" />
+                                    <StatBadge text="Ex Tech Lead Viettel" top="40%" right="-10%" />
+                                    <StatBadge text="Founder KhoahocAI.pro" bottom="20%" right="-5%" />
+                                    <StatBadge text="Founder XCEL BOT" top="20%" left="-5%" />
+                                    <StatBadge text="x10 Traffic Growth" bottom="30%" left="-10%" />
+                                    <StatBadge text="HUST & NEU Background" bottom="10%" left="5%" />
                                 </div>
                             </div>
                         </div>
 
                         <div className="space-y-8">
                             <div className="flex flex-wrap gap-3">
-                                <RoleTag text="CEO TienToi" />
-                                <RoleTag text="CEO Evergreen English Center" />
+                                <RoleTag text="PRODUCT MANAGER LEAD" />
+                                <RoleTag text="AI AUTOMATION EXPERT" />
                             </div>
 
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Người dạy online marketing chuyên sâu với hơn <span className="text-white font-bold">10 khóa học</span> và <span className="text-white font-bold">+20.000 học viên</span> tính đến nay.
+                                Với nền tảng kỹ thuật từ <span className="text-white font-bold">Bách Khoa (HUST)</span> và tư duy quản trị từ <span className="text-white font-bold">Kinh tế Quốc dân (NEU)</span>, tôi tập trung vào việc áp dụng AI để giải quyết các vấn đề kinh doanh thực tế.
                             </p>
 
                             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
                                 <div className="flex items-center gap-3 mb-4 text-secondary">
                                     <TrendingUp size={20} />
-                                    <span className="font-black uppercase tracking-widest text-xs">Quản lý chiến dịch cho +50 nhãn hàng</span>
+                                    <span className="font-black uppercase tracking-widest text-xs">Kinh nghiệm thực chiến dày dạn</span>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Thời trang', 'TPCN', 'Đào tạo', 'SaaS'].map(tag => (
+                                    {['Recommendation Systems', 'Machine Learning', 'Product Management', 'Market Growth'].map(tag => (
                                         <span key={tag} className="px-3 py-1 bg-white/5 rounded-full text-[10px] text-gray-500 font-bold">{tag}</span>
                                     ))}
                                 </div>
                             </div>
 
                             <div className="space-y-4">
-                                <p className="text-secondary font-black uppercase tracking-widest text-xs">Tác giả sách:</p>
-                                <BookCard title="CPM Meta Hack" desc="Tối ưu chi phí quảng cáo Meta" icon={<Users className="text-blue-500" />} />
-                                <BookCard title="Inside Google Ads" desc="Nhắm mục tiêu Google chuyên sâu" icon={<Star className="text-red-500" />} />
+                                <p className="text-secondary font-black uppercase tracking-widest text-xs">Các dự án & Khóa học tiêu biểu:</p>
+                                <BookCard title="AI Automation n8n" desc="Xây dựng AI Agent xử lý công việc tự động" icon={<Users className="text-blue-500" />} />
+                                <BookCard title="AI Prompt Master" desc="Làm chủ ngôn ngữ điều khiển AI" icon={<Star className="text-red-500" />} />
                             </div>
 
                             <div className="p-8 bg-secondary/5 border-l-4 border-secondary rounded-r-2xl italic">
                                 <p className="text-gray-300">
-                                    "Tôi không dạy bạn chạy quảng cáo. Tôi dạy bạn <span className="text-secondary font-black underline">TƯ DUY DỮ LIỆU</span> để bạn tự làm chủ mọi chiến dịch."
+                                    "Mục tiêu của tôi là giúp bạn biến AI từ một công cụ xa lạ thành một <span className="text-secondary font-black underline">CỘNG SỰ ĐẮC LỰC NHẤT</span> trong mọi công việc."
                                 </p>
                             </div>
                         </div>
