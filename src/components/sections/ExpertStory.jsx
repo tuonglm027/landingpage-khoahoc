@@ -38,7 +38,7 @@ export const ExpertStory = () => {
                 <div className="pt-24 border-t border-white/5">
                     <div className="text-center mb-20">
                         <p className="text-secondary font-black uppercase tracking-[0.4em] text-sm mb-4">The Expert</p>
-                        <h2 className="text-4xl md:text-6xl font-black text-white">VỀ PHẠM QUANG ĐẠT</h2>
+                        <h2 className="text-4xl md:text-6xl font-black text-white">VỀ PHẠM QUẢNG ĐẠT</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
