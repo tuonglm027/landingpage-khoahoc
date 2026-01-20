@@ -6,22 +6,22 @@ export const WhoIsThisFor = () => {
     const groups = [
         {
             title: "Chủ Shop Thời Trang / Phụ Kiện",
-            problems: ["Đơn ảo quá nhiều (40-50%)", "Tỉ lệ hoàn hàng cao kỷ lục", "Giá đơn (CPA) tăng gấp đôi so với 2023"],
+            problems: ["Dữ liệu đơn hàng không được làm sạch & phân loại tự động", "Khách mua, khách xem, khách hoàn đổ chung một luồng", "Không có workflow phát hiện & chặn đơn ảo từ sớm"],
             icon: <Target className="text-primary" />
         },
         {
             title: "Nhà Bán TPCN / Mỹ Phẩm",
-            problems: ["Vi phạm chính sách liên tục", "Tệp khách hàng bị loãng", "Không scale được ngân sách lớn"],
+            problems: ["Nội dung & hành vi khách không được kiểm duyệt bằng automation", "Dữ liệu phân tán, AI học sai chân dung người mua thật", "Không có hệ thống nuôi data dài hạn, tái sử dụng dữ liệu"],
             icon: <Zap className="text-secondary" />
         },
         {
             title: "Dân Làm Dropshipping VN",
-            problems: ["iOS 14.5+ bóp nghẹt pixel", "Trùng lặp tệp khách hàng", "Chi phí CPA ăn hết lợi nhuận"],
+            problems: ["Hành trình khách hàng không được theo dõi end-to-end", "Trùng lặp data do thiếu luồng tự động khử trùng & gộp dữ liệu", "AI tối ưu theo hành vi bề mặt vì không định nghĩa “sự kiện giá trị”"],
             icon: <TrendingUp className="text-blue-500" />
         },
         {
             title: "Inhouse Marketing Team",
-            problems: ["AI của Meta phân phối sai hướng", "Mất phương hướng khi camp vỡ", "Data nạp vào pixel bị 'ngộ độc'"],
+            problems: ["Mỗi tool chạy một kiểu, không có workflow trung tâm", "Camp gãy là hệ thống “mù” vì không có luồng giữ dữ liệu sống", "Data đầu vào không kiểm soát khiến AI học lệch ngay từ đầu"],
             icon: <Users className="text-purple-500" />
         }
     ]
@@ -32,12 +32,12 @@ export const WhoIsThisFor = () => {
 
             <div className="max-w-6xl mx-auto px-4 z-10 relative">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase">
+                    <h2 className="text-4xl md:text-[4.5rem] font-black leading-tight mb-6 uppercase">
                         ĐỪNG ĐỌC TIẾP NẾU BẠN <br />
                         <span className="text-primary italic">KHÔNG THUỘC</span> NHÓM NÀY
                     </h2>
                     <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">
-                        GCC chỉ dành cho những người kinh doanh thực sự muốn làm chủ dữ liệu.
+                        AI Automation chỉ dành cho những người kinh doanh thực sự muốn làm chủ dữ liệu.
                     </p>
                 </div>
 
@@ -74,11 +74,11 @@ export const WhoIsThisFor = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     className="mt-16 p-8 bg-primary/10 border-2 border-primary/20 rounded-[40px] text-center max-w-4xl mx-auto"
                 >
-                    <p className="text-primary font-black text-lg md:text-2xl uppercase italic tracking-widest">
-                        "Mọi tối ưu về Content, Target đều vô nghĩa nếu AI của Facebook bị nạp dữ liệu rác ngay từ đầu."
+                    <p className="text-primary font-black text-lg md:text-2xl italic tracking-widest">
+                        "AI không thất bại vì thuật toán. AI thất bại vì hệ thống Automation của bạn không có tư duy"
                     </p>
                 </motion.div>
             </div>
-        </section>
+        </section> 
     )
 }

@@ -18,7 +18,7 @@ export const FloatingBadge = ({ icon, text, top, left, right, bottom, style }) =
     </motion.div>
 )
 
-export const SectionTitle = ({ subtitle, title, highlight }) => (
+export const SectionTitle = ({ subtitle, title, highlight, highlight2, newLine }) => (
     <motion.div
         initial="hidden"
         whileInView="visible"
@@ -45,9 +45,9 @@ export const SectionTitle = ({ subtitle, title, highlight }) => (
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
             }}
-            className="text-3xl md:text-6xl font-black leading-tight text-white uppercase"
+            className="text-3xl md:text-[3.75rem] font-black leading-tight text-white uppercase"
         >
-            {title} <br className="md:hidden" /> <span className="text-secondary text-glow-yellow italic">{highlight}</span>
+            {title} {newLine ? <br /> : <br className="md:hidden" />} <span className="text-secondary text-glow-yellow italic">{highlight}</span>{highlight2 && <><br /><span className="text-secondary text-glow-yellow italic">{highlight2}</span></>}
         </motion.h2>
         <motion.div
             variants={{

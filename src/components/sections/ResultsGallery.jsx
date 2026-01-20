@@ -13,7 +13,8 @@ export const ResultsGallery = () => {
                 <SectionTitle
                     subtitle="Kết quả thực tế"
                     title="Sau khi áp dụng"
-                    highlight="Công Nghệ GCC"
+                    highlight="Công Nghệ "
+                    highlight2="AI Automation"
                 />
 
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -43,7 +44,7 @@ export const ResultsGallery = () => {
                             </div>
                         </div>
                         <div className="card-dark border-green-500/20 bg-green-500/[0.02]">
-                            <h4 className="text-green-500 font-black mb-4 flex items-center gap-2 uppercase tracking-wider text-sm">SAU KHI CÓ GCC AI</h4>
+                            <h4 className="text-green-500 font-black mb-4 flex items-center gap-2 uppercase tracking-wider text-sm">SAU KHI CÓ AI Automation AI</h4>
                             <div className="grid grid-cols-2 gap-4">
                                 <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Thời gian xử lý</p><p className="text-2xl font-black text-green-500">2-5 Giây</p></div>
                                 <div><p className="text-xs text-gray-500 mb-1 uppercase font-bold">Hiệu suất</p><p className="text-2xl font-black text-green-500">TỰ ĐỘNG 100%</p></div>

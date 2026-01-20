@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Navbar = () => (
     <nav className="glass-nav py-4 px-6 flex justify-between items-center bg-black/50 sticky top-0 z-50">
-        <div className="text-2xl font-black text-secondary italic tracking-tighter">GCC<span className="text-white">.PRO</span></div>
+        <div className="text-2xl font-black text-secondary italic tracking-tighter">AI Automation<span className="text-white">.PRO</span></div>
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
             <a href="#" className="hover:text-secondary transition-colors">Về chúng tôi</a>
             <a href="#" className="hover:text-secondary transition-colors">Kết quả</a>

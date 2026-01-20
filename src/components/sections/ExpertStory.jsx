@@ -14,7 +14,7 @@ export const ExpertStory = () => {
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="text-4xl md:text-7xl font-black mb-12 uppercase leading-tight"
+                        className="text-4xl md:text-[4.5rem] font-black mb-12 uppercase leading-tight"
                     >
                         TÔI ĐÃ MẤT <span className="text-primary text-glow-red italic">100 TRIỆU</span> TIỀN TOKEN <br />
                         ĐỂ NHẬN RA BÀI HỌC NÀY...

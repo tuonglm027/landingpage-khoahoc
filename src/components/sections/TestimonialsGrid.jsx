@@ -9,7 +9,7 @@ export const TestimonialsGrid = () => {
         id: i,
         name: `Học viên ${i + 1}`,
         role: "Nhà quảng cáo",
-        msg: "Chỉ sau 2 tuần áp dụng GCC, ROI của mình đã cải thiện đáng kể. Không còn tình trạng đơn ảo tràn lan như trước.",
+        msg: "Chỉ sau 2 tuần áp dụng AI Automation, ROI của mình đã cải thiện đáng kể. Không còn tình trạng đơn ảo tràn lan như trước.",
         rating: 5
     }))
 
@@ -17,7 +17,7 @@ export const TestimonialsGrid = () => {
         <section className="py-24 bg-[#050505] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase">
+                    <h2 className="text-4xl md:text-[3.75rem] font-black leading-tight mb-6 uppercase">
                         HÀNG TRĂM MARKETER ĐÃ <br />
                         <span className="text-glow-blue text-[#10B981] italic">THAY ĐỔI TƯ DUY</span>
                     </h2>
@@ -74,10 +74,15 @@ export const TestimonialsGrid = () => {
                     ))}
                 </div>
 
-                <div className="mt-20 text-center">
-                    <button className="px-12 py-5 border-2 border-white/10 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                        Xem thêm 89+ phản hồi khác
-                    </button>
+                <div className="mt-20 flex justify-center text-center">
+                    <a
+                        href="https://khoahocai.pro/course/tu-dong-hoa-cong-viec-bang-ai-chi-trong-10-ngay-khong-can-kien-thuc-lap-trinh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4"
+                    >
+                        ĐĂNG KÝ NGAY
+                    </a>
                 </div>
             </div>
         </section>

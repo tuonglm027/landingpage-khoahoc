@@ -24,7 +24,7 @@ export const Notification = () => {
                     exit={{ x: -100, opacity: 0 }}
                     className="fixed bottom-10 left-0 z-[100] bg-gray-900/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex items-center gap-4 shadow-2xl"
                 >
-                    <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-black font-black">GCC</div>
+                    <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-black font-black">AI</div>
                     <div>
                         <p className="text-sm font-bold text-white"><span className="text-secondary">{data.name}</span> vừa đăng ký</p>
                         <p className="text-[10px] text-gray-500">{data.time}</p>

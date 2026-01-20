@@ -5,17 +5,17 @@ import { SectionTitle } from '../shared'
 
 export const StepsSection = () => {
     const steps = [
-        { title: "Dọn dẹp Data", desc: "Loại bỏ 100% rác khỏi Pixel và Conversions API.", icon: <Rocket /> },
-        { title: "Huấn luyện AI", desc: "Hướng dẫn Facebook AI tìm đúng người sẵn sàng chi tiền.", icon: <ShieldCheck /> },
-        { title: "Vũ khí bí mật", desc: "Cài đặt hệ thống lọc đơn ảo tự động 24/7.", icon: <Lock /> },
-        { title: "Bùng nổ doanh số", desc: "Giữ ổn định CPA và scale ngân sách không giới hạn.", icon: <Zap /> }
+        { title: "Tư duy hệ thống AI Automation", icon: <Rocket /> },
+        { title: "Ngừng đốt tiền AI và API", icon: <ShieldCheck /> },
+        { title: "Tự thiết kế workflow chuẩn", icon: <Lock /> },
+        { title: "Scale công việc mà không cần scale người", icon: <Zap /> }
     ]
 
     return (
         <section className="py-24 bg-black">
             <div className="max-w-6xl mx-auto px-4">
                 <SectionTitle
-                    subtitle="Quy trình GCC"
+                    subtitle="Quy trình AI Automation"
                     title="4 Bước sở hữu"
                     highlight="Vũ Khí Bí Mật"
                 />
@@ -34,7 +34,6 @@ export const StepsSection = () => {
                                 {step.icon}
                             </div>
                             <h3 className="text-xl font-black mb-3 text-glow-yellow text-white">Bước {i + 1}: {step.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
                         </motion.div>
                     ))}
                 </div>

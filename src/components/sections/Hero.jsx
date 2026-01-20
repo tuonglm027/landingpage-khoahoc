@@ -37,18 +37,16 @@ export const Hero = () => {
                 </div>
 
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-[1.2] tracking-tight text-white uppercase">
-                    TỰ ĐỘNG HÓA CÔNG VIỆC <br />
-                    <span className="  italic block my-8 transform -skew-x-6 uppercase font-montserrat text-4xl md:text-6xl lg:text-7xl">BẰNG AI CHỈ TRONG <br /></span>
-                    <span className="text-red-600 text-glow-red italic block transform -skew-x-6 uppercase font-montserrat text-4xl md:text-6xl lg:text-7xl">10 NGÀY</span>
+                    <span className="text-red-600 text-glow-red italic block transform -skew-x-6 uppercase font-montserrat text-4xl md:text-6xl lg:text-7xl">90% người học n8n đang</span>
                     <br />
-                    KHÔNG CẦN LẬP TRÌNH!
+                    lãng phí thời gian của họ.
                 </h1>
 
                 <div className="max-w-3xl mx-auto mb-12">
                     <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed">
-                        Trang bị kiến thức về AI và Automation để có năng lực thiết kế và xây dựng <span className="text-white font-bold underline decoration-secondary">AI AGENT</span> riêng cho doanh nghiệp của bạn.
+                        Chi phí tăng cao, workflow không hiệu quả, dữ liệu sai lệch
                         <br />
-                        Vượt xa sức tưởng tượng với sức mạnh thực thi của n8n và trí tuệ GenAI.
+                        Đừng lướt xuống nếu bạn vẫn muốn mất 6-8h mỗi ngày cho những công việc vô ích.
                     </p>
                 </div>
 
@@ -68,19 +66,26 @@ export const Hero = () => {
                     <p className="text-[10px] md:text-xs text-gray-600 italic font-bold tracking-wider uppercase opacity-60">
                         *Đọc kỹ trước khi quyết định. Chúng tôi không nhận học viên thiếu quyết tâm.
                     </p>
+                    <a
+                        href="https://khoahocai.pro/course/tu-dong-hoa-cong-viec-bang-ai-chi-trong-10-ngay-khong-can-kien-thuc-lap-trinh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4"
+                    >
+                        ĐĂNG KÝ NGAY
+                    </a>
                 </div>
             </motion.div>
 
             {/* Floating Badges with Refined Styling */}
             <div className="hidden lg:block">
-                <FloatingBadge icon={<TrendingDown size={14} />} text="CTR giảm" top="20%" left="8%" style={{ y: y1 }} />
-                <FloatingBadge icon={<AlertTriangle size={14} />} text="Workflow rác" top="40%" left="5%" style={{ y: y2 }} />
+                <FloatingBadge icon={<AlertTriangle size={14} />} text="Workflow rác" top="15%" left="5%" style={{ y: y2 }} />
                 <FloatingBadge icon={<Users size={14} />} text="Khách ảo" top="25%" right="10%" style={{ y: y1 }} />
                 <FloatingBadge icon={<Lock size={14} />} text="Bế tắc" top="45%" right="5%" style={{ y: y3 }} />
                 <FloatingBadge icon={<CheckCircle2 size={14} />} text="Lãng phí API" bottom="25%" right="15%" style={{ y: y2 }} />
                 <FloatingBadge icon={<BarChart3 size={14} />} text="Token cao" bottom="20%" left="15%" style={{ y: y1 }} />
                 <FloatingBadge icon={<TrendingUp size={14} />} text="Chi phí tăng" top="60%" left="10%" style={{ y: y3 }} />
-                <FloatingBadge icon={<Lock size={14} />} text="Thiếu tư duy" bottom="40%" left="5%" style={{ y: y2 }} />
+                <FloatingBadge icon={<Lock size={14} />} text="Thiếu tư duy" bottom="50%" left="5%" style={{ y: y2 }} />
             </div>
         </section>
     )

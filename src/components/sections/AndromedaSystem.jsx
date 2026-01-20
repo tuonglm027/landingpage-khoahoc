@@ -16,7 +16,7 @@ export const AndromedaSystem = () => {
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed text-lg"
+                    className="text-gray-400 max-w-3xl mx-auto mb-16 leading-[1.6] text-lg"
                 >
                     Có phải bạn đang tải hàng chục mẫu <span className="text-white font-bold">n8n workflow</span> từ trên mạng, copy và paste nhưng kết quả nhận lại chỉ là sự <span className="text-primary font-bold">RẮC RỐI & SAI LỖI?</span>
                 </motion.p>
@@ -30,28 +30,28 @@ export const AndromedaSystem = () => {
                         Vấn đề lớn nhất là:
                     </div>
 
-                    <h2 className="text-3xl md:text-5xl font-black mb-10 leading-tight uppercase">
+                    <h2 className="text-3xl md:text-[3rem] lg:text-[3rem] font-black mb-10 leading-tight uppercase">
                         BẠN ĐANG RƠI VÀO <br />
                         CẠM BẪY SAO CHÉP
                     </h2>
 
-                    <div className="inline-block bg-primary text-white font-black px-12 py-4 rounded-xl text-2xl md:text-4xl shadow-[0_0_50px_rgba(239,68,68,0.3)] mb-10 skew-x-[-10deg]">
-                        TEMPLATE TRAP
+                    <div className="inline-block bg-primary text-white font-black px-12 py-4 rounded-xl text-2xl md:text-4xl shadow-[0_0_50px_rgba(239,68,68,0.3)] mb-10 skew-[-10deg]">
+                        TEMPLATE
                     </div>
 
-                    <p className="text-gray-500 text-sm md:text-lg italic max-w-2xl mx-auto font-medium">
+                    <p className="text-gray-500 text-sm md:text-lg italic max-w-2xl mx-auto font-medium leading-[1.5]">
                         Khi bạn dùng template mà không hiểu <span className="text-gray-300 font-bold">TƯ DUY GỐC</span>, bạn chỉ đang xây lâu đài trên cát. Chỉ cần AI thay đổi 1 bước, hệ thống của bạn sẽ <span className="text-primary font-bold">SỤP ĐỔ</span> ngay lập tức.
                     </p>
                 </motion.div>
 
                 <div className="pt-12">
-                    <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase">
+                    <h2 className="text-3rem md:text-[3rem] lg:text-[3rem] font-black mb-12 leading-tight uppercase">
                         TẠI SAO CÁCH HỌC CŨ <br /> LẠI KHIẾN BẠN <span className="text-primary text-glow-red">THẤT BẠI?</span>
                     </h2>
 
                     <div className="bg-primary/5 border border-primary/20 p-10 rounded-3xl max-w-3xl mx-auto relative group">
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-black border border-white/10 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-[0_0_20px_#EF444466]">💡</div>
-                        <p className="text-gray-300 italic font-medium leading-relaxed text-lg">
+                        <p className="text-gray-300 italic font-medium leading-[1.5] text-lg">
                             "Học template giống như dùng <span className="text-primary font-bold text-glow-red">mì ăn liền</span>. Nó giúp bạn no ngay lúc đó, nhưng không thể giúp bạn trưởng thành và làm chủ cuộc chơi dài hạn."
                         </p>
                     </div>

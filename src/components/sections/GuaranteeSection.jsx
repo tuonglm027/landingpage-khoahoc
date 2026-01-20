@@ -22,7 +22,7 @@ export const GuaranteeSection = () => {
                         </div>
                     </div>
 
-                    <h2 className="text-3xl md:text-5xl font-black mb-8 uppercase tracking-widest leading-tight">
+                    <h2 className="text-4xl md:text-[3rem] font-black mb-8 uppercase leading-tight">
                         CAM KẾT <span className="text-[#10B981] text-glow-green">RỦI RO BẰNG 0</span>
                     </h2>
 

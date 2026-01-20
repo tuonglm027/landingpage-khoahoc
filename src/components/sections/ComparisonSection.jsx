@@ -7,7 +7,7 @@ export const ComparisonSection = () => {
     return (
         <section className="py-24 bg-[#080808]">
             <div className="max-w-6xl mx-auto px-4">
-                <SectionTitle title="Sự khác biệt của" highlight="GCC" />
+                <SectionTitle title="Sự khác biệt của" highlight="AI Automation" newLine={true} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Cách cũ */}
@@ -22,15 +22,15 @@ export const ComparisonSection = () => {
                         <ul className="space-y-6">
                             <li className="flex gap-4 items-start text-gray-400">
                                 <ArrowRight className="text-red-500 mt-1 shrink-0" size={18} />
-                                Chạy Broad hên xui, để Facebook tự bơi.
+                                Dùng AI như tool rời rạc, mạnh ai nấy xài.
                             </li>
                             <li className="flex gap-4 items-start text-gray-400">
                                 <ArrowRight className="text-red-500 mt-1 shrink-0" size={18} />
-                                Nạp dữ liệu đơn ảo khiến AI học sai tệp.
+                                Thấy gì hay là copy workflow, không hiểu bản chất.
                             </li>
                             <li className="flex gap-4 items-start text-gray-400">
                                 <ArrowRight className="text-red-500 mt-1 shrink-0" size={18} />
-                                Gồng lỗ hàng ngày chờ "bão" qua.
+                                Automation chỉ để tiết kiệm vài phút, không tạo hệ thống.
                             </li>
                         </ul>
                     </motion.div>
@@ -45,20 +45,28 @@ export const ComparisonSection = () => {
                             <span className="bg-secondary text-black text-[10px] font-black px-2 py-1 rounded-full uppercase">Hiệu quả nhất</span>
                         </div>
                         <h4 className="text-2xl font-black mb-8 text-secondary flex items-center gap-3 underline decoration-secondary/30 underline-offset-8">
-                            <Rocket /> CÔNG NGHỆ GCC
+                            <Rocket /> CÔNG NGHỆ AI Automation
                         </h4>
                         <ul className="space-y-6">
                             <li className="flex gap-4 items-start text-white">
                                 <CheckCircle2 className="text-secondary mt-1 shrink-0" size={18} />
-                                Huấn luyện AI tìm đích danh người MUA THẬT.
+                                Nhìn AI Automation như một hệ thống vận hành, không phải tool.
                             </li>
                             <li className="flex gap-4 items-start text-white">
                                 <CheckCircle2 className="text-secondary mt-1 shrink-0" size={18} />
-                                Lọc sạch 100% traffic rác vĩnh viễn.
+                                Thiết kế workflow dựa trên mục tiêu kinh doanh & hành vi người dùng.
                             </li>
                             <li className="flex gap-4 items-start text-white">
                                 <CheckCircle2 className="text-secondary mt-1 shrink-0" size={18} />
-                                Tối ưu chỉ số thực (ROI/ROAS), không phải chỉ số ảo.
+                                AI phối hợp với nhau theo kịch bản, logic, điều kiện rõ ràng.
+                            </li>
+                            <li className="flex gap-4 items-start text-white">
+                                <CheckCircle2 className="text-secondary mt-1 shrink-0" size={18} />
+                                Mọi quy trình đều đo lường, tối ưu, tự học theo dữ liệu.
+                            </li>
+                            <li className="flex gap-4 items-start text-white">
+                                <CheckCircle2 className="text-secondary mt-1 shrink-0" size={18} />
+                                Mở rộng gấp nhiều lần nhưng không tăng người, không tăng áp lực.
                             </li>
                         </ul>
                     </motion.div>
