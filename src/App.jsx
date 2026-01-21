@@ -57,12 +57,15 @@ function HomePage() {
     )
 }
 
+import PaymentSuccessPage from './pages/PaymentSuccessPage'
+
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/payment" element={<PaymentPage />} />
+                {/* <Route path="/payment-success" element={<PaymentSuccessPage />} /> */}
             </Routes>
         </Router>
     )
