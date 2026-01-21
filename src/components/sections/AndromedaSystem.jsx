@@ -35,7 +35,7 @@ export const AndromedaSystem = () => {
                         CẠM BẪY SAO CHÉP
                     </h2>
 
-                    <div className="inline-block bg-primary text-white font-black px-12 py-4 rounded-xl text-2xl md:text-4xl shadow-[0_0_50px_rgba(239,68,68,0.3)] mb-10 skew-[-10deg]">
+                    <div className="inline-block bg-primary text-white font-black px-12 py-4 rounded-xl text-3xl md:text-5xl shadow-[0_0_60px_rgba(239,68,68,0.5)] mb-10 skew-[-10deg] uppercase tracking-tighter hover:scale-110 active:scale-95 transition-all duration-300 transform select-none cursor-default border-t-2 border-white/20">
                         TEMPLATE
                     </div>
 

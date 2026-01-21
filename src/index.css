@@ -53,3 +53,37 @@
 .glass-nav {
     @apply bg-background/80 backdrop-blur-lg border-b border-white/5 sticky top-0 z-50;
 }
+
+.gradient-border-animated {
+    position: relative;
+    z-index: 1;
+}
+
+.gradient-border-animated::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    background: linear-gradient(90deg, #ef4444, #facc15, #3b82f6, #ef4444);
+    background-size: 300% 100%;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.15;
+    transition: opacity 0.3s;
+    animation: borderRotate 4s linear infinite;
+    padding: 1.5px;
+    /* Ensure space for the border */
+}
+
+.gradient-border-animated:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}

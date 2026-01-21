@@ -14,7 +14,7 @@ export const Support = () => {
   const { scrollY } = useScroll()
   const ySlow = useTransform(scrollY, [0, 500], [0, -80])
   const yMedium = useTransform(scrollY, [0, 500], [0, -140])
-  const yFast = useTransform(scrollY, [0, 500], [0, -200])  
+  const yFast = useTransform(scrollY, [0, 500], [0, -200])
 
   return (
     <section className="relative min-h-screen bg-[#020202] overflow-hidden pt-36 pb-24 px-4 text-center">
@@ -66,7 +66,7 @@ export const Support = () => {
         {/* CTA */}
         <div className="mt-16 flex flex-col items-center gap-6">
           <a
-            href="https://zalo.me"
+            href="https://zalo.me/g/tvrdrk774"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full max-w-md bg-blue-500 text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-4"

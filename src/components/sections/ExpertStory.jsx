@@ -21,13 +21,13 @@ export const ExpertStory = () => {
                     </motion.h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-20">
-                        <div className="bg-green-500/5 border border-green-500/20 p-8 rounded-[32px] text-left">
-                            <span className="text-green-500 font-black text-2xl mb-4 block">THỰC TRẠNG</span>
+                        <div className="bg-green-500/5 border border-primary/20 p-8 rounded-[32px] text-left gradient-border-animated">
+                            <span className="text-primary font-black text-2xl mb-4 block">THỰC TRẠNG</span>
                             <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">DẠY THEO TEMPLATE</p>
                             <p className="text-white text-sm leading-relaxed">Họ chỉ dạy cách xây workflow theo mẫu có sẵn, nhưng không ai dạy bạn tư duy hệ thống đúng.</p>
                         </div>
-                        <div className="bg-primary/5 border border-primary/20 p-8 rounded-[32px] text-left">
-                            <span className="text-primary font-black text-2xl mb-4 block">GIẢI PHÁP</span>
+                        <div className="bg-primary/5 border border-green-500/20 p-8 rounded-[32px] text-left gradient-border-animated">
+                            <span className="text-green-500 font-black text-2xl mb-4 block">GIẢI PHÁP</span>
                             <p className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">TƯ DUY THIẾT KẾ (DESIGN THINKING)</p>
                             <p className="text-white text-sm leading-relaxed">Khi có tư duy đúng, bạn có thể tự thiết kế và làm chủ mọi hệ thống automation phức tạp nhất.</p>
                         </div>
@@ -45,21 +45,24 @@ export const ExpertStory = () => {
                         <div className="relative">
                             <div className="absolute inset-0 bg-secondary/20 blur-[100px] rounded-full" />
                             <div className="relative z-10 p-4 border border-white/10 rounded-[40px] bg-gray-900/50 backdrop-blur-sm">
-                                <div className="aspect-[4/5] bg-gray-800 rounded-[32px] overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                                    {/* Placeholder for image */}
-                                    <div className="w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                                        <Users size={80} className="text-secondary/20 mb-6" />
-                                        <p className="text-gray-500 font-bold uppercase tracking-widest text-sm">Instructor Image</p>
+                                <div className="aspect-[4/5] relative">
+                                    {/* Image Wrapper with Clipping */}
+                                    <div className="absolute inset-0 bg-gray-800 rounded-[32px] overflow-hidden">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+                                        <img
+                                            src="/sepdat.png"
+                                            alt="Pham Quang Dat"
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
 
-                                    {/* Stats Badges */}
-                                    <StatBadge text="Ex PM Lead One Mount" top="10%" right="-5%" />
-                                    <StatBadge text="Ex Tech Lead Viettel" top="40%" right="-10%" />
-                                    <StatBadge text="Founder KhoahocAI.pro" bottom="20%" right="-5%" />
-                                    <StatBadge text="Founder XCEL BOT" top="20%" left="-5%" />
-                                    <StatBadge text="x10 Traffic Growth" bottom="30%" left="-10%" />
-                                    <StatBadge text="HUST & NEU Background" bottom="10%" left="5%" />
+                                    {/* Stats Badges - Now outside overflow-hidden but inside aspect container */}
+                                    <StatBadge text="Ex PM Lead One Mount" top="10%" right="-8%" />
+                                    <StatBadge text="Ex Tech Lead Viettel" top="40%" right="-12%" />
+                                    <StatBadge text="Founder KhoahocAI.pro" bottom="20%" right="-8%" />
+                                    <StatBadge text="Founder XCEL BOT" top="20%" left="-8%" />
+                                    <StatBadge text="x10 Traffic Growth" bottom="30%" left="-12%" />
+                                    <StatBadge text="HUST & NEU Background" bottom="10%" left="2%" />
                                 </div>
                             </div>
                         </div>

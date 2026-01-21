@@ -104,9 +104,22 @@ const PaymentPage = () => {
           }
         })
 
+        // Track Meta Pixel Purchase
+        if (window.fbq) {
+          window.fbq('track', 'Purchase', {
+            value: selectedCourse.current_price || 999000,
+            currency: 'VND',
+            contents: [{
+              id: selectedCourse.course_code,
+              quantity: 1
+            }],
+            content_type: 'product'
+          })
+        }
+
         // Success redirect or message
         setTimeout(() => {
-          window.location.href = '/payment-success' // Adjust if needed
+          window.location.href = '/'
         }, 3000)
       }
     } catch (error) {
@@ -185,6 +198,16 @@ const PaymentPage = () => {
           price: result.data.amount,
           quantity: 1
         }])
+
+        // Track Meta Pixel Lead
+        if (window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: selectedCourse.title,
+            content_category: 'Khóa học',
+            value: result.data.amount,
+            currency: 'VND'
+          })
+        }
       } else {
         alert('Đăng ký không thành công: ' + JSON.stringify(result.errors || result.message || 'Lỗi hệ thống'))
       }
@@ -241,7 +264,7 @@ const PaymentPage = () => {
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-300">Giá gốc:</span>
                     <span className="line-through text-gray-400">
-                      {new Intl.NumberFormat('vi-VN').format(selectedCourse.sale_price || selectedCourse.regular_price)}đ
+                      3.999.000đ
                     </span>
                   </div>
                   <div className="flex justify-between items-center mb-4">

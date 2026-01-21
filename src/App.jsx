@@ -28,7 +28,7 @@ function HomePage() {
             <AndromedaSystem />
             <ResultsGallery />
             <ExpertStory />
-            <WhoIsThisFor />
+            {/* <WhoIsThisFor /> */}
             <SecretWeaponSection />
             <ComparisonSection />
             <StepsSection />

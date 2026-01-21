@@ -28,7 +28,7 @@ export const StepsSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
-                            className="card-dark group border-white/5 hover:border-secondary/20 transition-all"
+                            className="card-dark group border-white/5 hover:border-transparent transition-all gradient-border-animated"
                         >
                             <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-300">
                                 {step.icon}

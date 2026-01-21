@@ -108,7 +108,7 @@ export const PricingSection = () => {
                     </span>
                   </h3>
                   <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mt-2">
-                    Giá gốc <span className="line-through">{course ? formatPrice(course.sale_price || course.regular_price) : '...'}</span> – DUY NHẤT TRONG HÔM NAY
+                    Giá gốc <span className="line-through">3.999.000</span> – DUY NHẤT TRONG HÔM NAY
                   </p>
                 </div>
 
