@@ -9,8 +9,12 @@ if ! docker info > /dev/null 2>&1; then
     exit 1
 fi
 
+# Pull latest code
+echo "📥 Pulling latest code..."
+git pull origin main
+
 # Build and start of application
-echo "� Building and starting of application..."
+echo "🔨 Building and starting application..."
 docker-compose down
 docker-compose build --no-cache
 docker-compose up -d
@@ -20,10 +24,9 @@ echo "⏳ Waiting for the application to start..."
 sleep 10
 
 # Check if the application is running
-if curl -f http://localhost:3002/api/health > /dev/null 2>&1; then
+if curl -f http://localhost:3002 > /dev/null 2>&1; then
     echo "✅ Application is running successfully!"
     echo "🌐 Frontend is available at: http://localhost:3002"
-    echo "🔍 Health check: http://localhost:3002/api/health"
 else
     echo "❌ Application failed to start. Checking logs..."
     docker-compose logs frontend
