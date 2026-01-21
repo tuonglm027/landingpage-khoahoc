@@ -71,28 +71,47 @@ export const ExpertStory = () => {
                             <div className="flex flex-wrap gap-3">
                                 <RoleTag text="PRODUCT MANAGER LEAD" />
                                 <RoleTag text="AI AUTOMATION EXPERT" />
+                                <RoleTag text="FOUNDER @ SUPERB AI" />
                             </div>
 
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Với nền tảng kỹ thuật từ <span className="text-white font-bold">Bách Khoa (HUST)</span> và tư duy quản trị từ <span className="text-white font-bold">Kinh tế Quốc dân (NEU)</span>, tôi tập trung vào việc áp dụng AI để giải quyết các vấn đề kinh doanh thực tế.
+                                Với nền tảng kỹ thuật từ <span className="text-white font-bold">Bách Khoa (HUST)</span> và tư duy quản trị từ <span className="text-white font-bold">Kinh tế Quốc dân (NEU)</span>.
+                                <br />
+                                <br />
+                                Từng giữ vị trí quan trọng tại các tập đoàn công nghệ lớn: <span className="text-white font-bold">Viettel &rarr; One Mount &rarr; Superb Al</span>.
                             </p>
 
                             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
                                 <div className="flex items-center gap-3 mb-4 text-secondary">
+                                    <BookOpen size={20} />
+                                    <span className="font-black uppercase tracking-widest text-xs">Chứng chỉ & Đào tạo chuyên sâu</span>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3 text-sm text-gray-300">
+                                        <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                        <span>CS101 @ Stanford Online</span>
+                                    </li>
+                                    <li className="flex items-start gap-3 text-sm text-gray-300">
+                                        <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                        <span>IBM RAG & Agentic AI</span>
+                                    </li>
+                                    <li className="flex items-start gap-3 text-sm text-gray-300">
+                                        <CheckCircle2 className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                        <span>IBM Building AI Agents & Agentic workflows</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                                <div className="flex items-center gap-3 mb-4 text-secondary">
                                     <TrendingUp size={20} />
-                                    <span className="font-black uppercase tracking-widest text-xs">Kinh nghiệm thực chiến dày dạn</span>
+                                    <span className="font-black uppercase tracking-widest text-xs">Kinh nghiệm thực chiến</span>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Recommendation Systems', 'Machine Learning', 'Product Management', 'Market Growth'].map(tag => (
+                                    {['AI Workforce Platform', 'Recommendation Systems', 'Product Management', 'Market Growth'].map(tag => (
                                         <span key={tag} className="px-3 py-1 bg-white/5 rounded-full text-[10px] text-gray-500 font-bold">{tag}</span>
                                     ))}
                                 </div>
-                            </div>
-
-                            <div className="space-y-4">
-                                <p className="text-secondary font-black uppercase tracking-widest text-xs">Các dự án & Khóa học tiêu biểu:</p>
-                                <BookCard title="AI Automation n8n" desc="Xây dựng AI Agent xử lý công việc tự động" icon={<Users className="text-blue-500" />} />
-                                <BookCard title="AI Prompt Master" desc="Làm chủ ngôn ngữ điều khiển AI" icon={<Star className="text-red-500" />} />
                             </div>
 
                             <div className="p-8 bg-secondary/5 border-l-4 border-secondary rounded-r-2xl italic">
