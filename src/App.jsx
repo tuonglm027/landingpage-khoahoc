@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/layout/Navbar'
 import { Hero } from './components/sections/Hero'
 import { ProblemSection } from './components/sections/ProblemSection'
@@ -17,8 +18,9 @@ import { GuaranteeSection } from './components/sections/GuaranteeSection'
 import { Footer } from './components/layout/Footer'
 import { Support } from './components/sections/Support'
 import { Notification } from './components/layout/Notification'
+import PaymentPage from './pages/PaymentPage'
 
-function App() {
+function HomePage() {
     return (
         <main className="bg-background text-white selection:bg-primary selection:text-white font-roboto overflow-x-hidden">
             <Hero />
@@ -43,15 +45,26 @@ function App() {
                         <h3 className="text-2xl font-black mb-1 text-white">BẮT ĐẦU NGAY HÔM NAY</h3>
                         <p className="text-white/70 font-bold uppercase text-xs tracking-widest">Ưu đãi chỉ còn lại 09 suất cuối cùng</p>
                     </div>
-                    <button className="bg-white text-primary font-black px-10 py-4 rounded-xl text-xl hover:bg-gray-100 transition-colors shadow-2xl transform group-hover:scale-105">
-                        <a href="https://khoahocai.pro/course/tu-dong-hoa-cong-viec-bang-ai-chi-trong-10-ngay-khong-can-kien-thuc-lap-trinh" target="_blank">NHẬN ƯU ĐÃI NGAY</a>
-                    </button>
+                    <a href="/payment" className="bg-white text-primary font-black px-10 py-4 rounded-xl text-xl hover:bg-gray-100 transition-colors shadow-2xl transform group-hover:scale-105 inline-block">
+                        NHẬN ƯU ĐÃI NGAY
+                    </a>
                 </div>
             </section>
 
             <Footer />
             <Notification />
         </main>
+    )
+}
+
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/payment" element={<PaymentPage />} />
+            </Routes>
+        </Router>
     )
 }
 

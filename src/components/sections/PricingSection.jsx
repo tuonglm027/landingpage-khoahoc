@@ -92,9 +92,7 @@ export const PricingSection = () => {
                 </div>
 
                 <a
-                    href="https://khoahocai.pro/course/tu-dong-hoa-cong-viec-bang-ai-chi-trong-10-ngay-khong-can-kien-thuc-lap-trinh"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/payment"
                     className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4"
                 >
                     MUA NGAY

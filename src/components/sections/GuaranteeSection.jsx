@@ -27,7 +27,7 @@ export const GuaranteeSection = () => {
                     </h2>
 
                     <p className="text-gray-400 text-lg md:text-xl font-bold italic mb-12">
-                        "Sơn không muốn giữ tiền của bạn nếu bạn không thấy giá trị."
+                        "Chúng tôi không muốn giữ tiền của bạn nếu bạn không thấy giá trị."
                     </p>
 
                     <div className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col md:flex-row items-center gap-6 text-left max-w-2xl mx-auto group hover:border-green-500/30 transition-all">
@@ -41,7 +41,7 @@ export const GuaranteeSection = () => {
 
                     <div className="mt-12 flex items-center justify-center gap-2 text-gray-500 text-xs font-bold uppercase tracking-widest">
                         <Heart size={14} className="text-primary" />
-                        Chân thành & Trách nhiệm từ Sơn Marketing
+                        Chân thành & Trách nhiệm từ KhoahocAI.pro
                     </div>
                 </motion.div>
             </div>

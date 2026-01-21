@@ -54,7 +54,7 @@ export const ProblemSection = () => {
                             <h4 className="font-bold text-gray-200">n8n Dashboard - Hiệu suất vận hành</h4>
                         </div>
                         <div className="flex items-center gap-4">
-                            <span className="text-gray-500 text-xs font-medium">19/01/2026</span>
+                            <span className="text-gray-500 text-xs font-medium">{new Date().toLocaleDateString('vi-VN')}</span>
                             <div className="flex gap-1">
                                 <div className="w-2 h-2 rounded-full bg-gray-700" />
                                 <div className="w-2 h-2 rounded-full bg-gray-700" />
@@ -90,19 +90,18 @@ export const ProblemSection = () => {
                             {/* The Line */}
                             <svg className="w-full h-full relative z-10 overflow-visible">
                                 <motion.path
-                                    d="M 10 180 Q 250 160 500 130 T 900 80 T 1200 40"
+                                    d="M 10 180 C 150 170, 350 140, 500 130 S 750 90, 900 80 S 1100 50, 1200 40"
                                     fill="none"
                                     stroke="#EF4444"
                                     strokeWidth="4"
                                     initial={{ pathLength: 0 }}
                                     whileInView={{ pathLength: 1 }}
-                                    transition={{ duration: 2 }}
+                                    transition={{ duration: 2, ease: "easeInOut" }}
                                     className="drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"
                                 />
-                                <PulsingDot cx="250" cy="164" delay={0.5} />
+                                <PulsingDot cx="250" cy="155" delay={0.5} />
                                 <PulsingDot cx="500" cy="130" delay={1} />
                                 <PulsingDot cx="900" cy="80" delay={1.5} />
-                                <PulsingDot cx="1200" cy="40" delay={2} />
                             </svg>
 
                             <div className="absolute bottom-[-20px] left-0 text-[10px] text-gray-600 font-bold">30 ngày trước</div>

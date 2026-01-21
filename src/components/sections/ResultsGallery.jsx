@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Rocket } from 'lucide-react'
+import { Rocket, Shirt, Heart, Home, GraduationCap } from 'lucide-react'
 import { SectionTitle } from '../shared'
 
 export const ResultsGallery = () => {

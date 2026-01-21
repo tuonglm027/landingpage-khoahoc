@@ -7,7 +7,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: "#000000",
+                background: "#111827", // Dark gray instead of pure black
                 primary: "#EF4444", // Red
                 secondary: "#FACC15", // Yellow
                 accent: {
