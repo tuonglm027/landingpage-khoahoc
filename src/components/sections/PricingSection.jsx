@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Gift, ShieldCheck, Zap, Lock, ChevronRight } from 'lucide-react'
+import { API_BASE_URL } from '../../constants/api'
 
 export const PricingSection = () => {
   const [timeLeft, setTimeLeft] = useState(3600 * 24 + 3600 * 5)
   const [revealed, setRevealed] = useState(false)
+  const [course, setCourse] = useState(null)
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/landing/courses`)
+        const result = await response.json()
+        if (result.success && result.data.length > 0) {
+          setCourse(result.data[0])
+        }
+      } catch (e) {
+        console.error('Failed to fetch course data:', e)
+      }
+    }
+    fetchCourse()
+  }, [])
 
   useEffect(() => {
     if (!revealed) return
@@ -13,6 +30,10 @@ export const PricingSection = () => {
     }, 1000)
     return () => clearInterval(timer)
   }, [revealed])
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('vi-VN').format(price) + 'đ'
+  }
 
   const formatTime = (seconds) => {
     const h = Math.floor(seconds / 3600)
@@ -83,20 +104,20 @@ export const PricingSection = () => {
                   <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
                     CHỈ CÒN{' '}
                     <span className="text-secondary text-glow-yellow text-6xl md:text-8xl">
-                      999.000đ
+                      {course ? formatPrice(course.current_price) : '...'}
                     </span>
                   </h3>
                   <p className="text-gray-500 font-bold uppercase tracking-widest text-xs mt-2">
-                    Giá gốc <span className="line-through">3.999.000đ</span> – DUY NHẤT TRONG HÔM NAY
+                    Giá gốc <span className="line-through">{course ? formatPrice(course.sale_price || course.regular_price) : '...'}</span> – DUY NHẤT TRONG HÔM NAY
                   </p>
                 </div>
 
                 <a
-                    href="/payment"
-                    className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4"
+                  href="/payment"
+                  className="w-full max-w-md bg-secondary text-black font-black py-6 rounded-2xl text-xl md:text-2xl shadow-[0_0_50px_rgba(250,204,21,0.3)] hover:scale-105 transition-all flex items-center justify-center gap-4"
                 >
-                    MUA NGAY
-                    <ChevronRight />
+                  MUA NGAY
+                  <ChevronRight />
                 </a>
 
                 <div className="flex flex-wrap justify-center gap-6 pt-4">
@@ -145,9 +166,8 @@ const PriceStep = ({ label, status, count, price, icon, isDark }) => (
   <motion.div
     initial={{ opacity: 0, x: 20 }}
     whileInView={{ opacity: 1, x: 0 }}
-    className={`p-6 rounded-3xl border ${
-      isDark ? 'bg-black/40 border-white/5 opacity-50' : 'bg-white/5 border-white/10'
-    }`}
+    className={`p-6 rounded-3xl border ${isDark ? 'bg-black/40 border-white/5 opacity-50' : 'bg-white/5 border-white/10'
+      }`}
   >
     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500 mb-4">
       {icon} {label}

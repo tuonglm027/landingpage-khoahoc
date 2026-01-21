@@ -8,8 +8,8 @@ export const Navbar = () => (
             <a href="#" className="hover:text-secondary transition-colors">Kết quả</a>
             <a href="#" className="hover:text-secondary transition-colors">Nội dung</a>
         </div>
-        <button className="bg-primary hover:bg-red-600 px-6 py-2.5 rounded-xl font-black text-xs transition-all shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:scale-105 active:scale-95">
+        <a href="/payment" className="bg-primary hover:bg-red-600 px-6 py-2.5 rounded-xl font-black text-xs transition-all shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:scale-105 active:scale-95">
             ĐĂNG KÝ NGAY
-        </button>
+        </a>
     </nav>
 )

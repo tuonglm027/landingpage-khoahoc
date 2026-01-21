@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeft, QrCode } from 'lucide-react'
+import { ArrowLeft, QrCode, CheckCircle2 } from 'lucide-react'
 import TagManager from 'react-gtm-module'
-import { trackPageView, trackBeginCheckout, trackButtonClick, trackLead } from '../utils/gtm'
+import { trackPageView, trackBeginCheckout, trackLead } from '../utils/gtm'
+import { API_BASE_URL } from '../constants/api'
 
 const PaymentPage = () => {
-  // Track page view on mount
-  useEffect(() => {
-    trackPageView('Trang thanh toán khóa học')
-  }, [])
-
+  const [courses, setCourses] = useState([])
+  const [selectedCourse, setSelectedCourse] = useState(null)
+  const [registrationData, setRegistrationData] = useState(null)
   const [showQR, setShowQR] = useState(false)
   const [timeLeft, setTimeLeft] = useState(15 * 60) // 15 minutes in seconds
   const [paymentStatus, setPaymentStatus] = useState('pending') // pending, success, failed
@@ -24,124 +23,30 @@ const PaymentPage = () => {
     phone: ''
   })
 
-  // Validate form fields
-  const validateField = (name, value) => {
-    let error = ''
-    
-    if (!value || value.trim() === '') {
-      switch(name) {
-        case 'name':
-          error = 'Vui lòng nhập họ và tên'
-          break
-        case 'email':
-          error = 'Vui lòng nhập email'
-          break
-        case 'phone':
-          error = 'Vui lòng nhập số điện thoại'
-          break
-      }
-    } else if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
-      error = 'Email không hợp lệ'
-    } else if (name === 'phone' && !/(0[3-9][0-9]{8}|84[3-9][0-9]{8})/.test(value.replace(/[^0-9+]/g, ''))) {
-      error = 'Số điện thoại không hợp lệ'
-    }
-    
-    setErrors(prev => ({ ...prev, [name]: error }))
-    return error === ''
-  }
+  // Fetch courses on mount
+  useEffect(() => {
+    trackPageView('Trang thanh toán khóa học')
+    fetchCourses()
+  }, [])
 
-  // Check if form is valid
-  const isFormValid = () => {
-    return formData.name.trim() !== '' && 
-           formData.email.trim() !== '' && 
-           formData.phone.trim() !== '' &&
-           errors.name === '' &&
-           errors.email === '' &&
-           errors.phone === ''
-  }
-
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    validateField(name, value)
-  }
-
-  // Send payment confirmation email
-  const sendPaymentConfirmation = async (status) => {
-    if (!formData.email || !formData.name) {
-      alert('Vui lòng điền đầy đủ thông tin trước khi xác nhận thanh toán')
-      return
-    }
-
-    setIsProcessing(true)
+  const fetchCourses = async () => {
     try {
-      const response = await fetch('/api/send-payment-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          amount: '999.000đ',
-          transactionId: 'AIA_0213543245',
-          status: status,
-          courseName: 'Tự động hóa công việc bằng AI'
-        })
+      const response = await fetch(`${API_BASE_URL}/api/landing/courses`, {
+        headers: { 'Accept': 'application/json' }
       })
-
-      if (response.ok) {
-        setPaymentStatus(status)
-        
-        // Track lead generation
-        trackLead({
-          type: 'payment_confirmation',
-          email: formData.email,
-          phone: formData.phone,
-          name: formData.name,
-          course: 'Tự động hóa công việc bằng AI',
-          status: status
-        })
-
-        if (status === 'success') {
-          // Track purchase event
-          TagManager.dataLayer({
-            dataLayer: {
-              event: 'purchase',
-              ecommerce: {
-                transaction_id: 'AIA_0213543245',
-                value: 999000,
-                currency: 'VND',
-                items: [{
-                  item_name: 'Tự động hóa công việc bằng AI',
-                  category: 'Khóa học',
-                  price: 999000,
-                  quantity: 1
-                }]
-              }
-            }
-          })
-          
-          alert('Thanh toán thành công! Email xác nhận đã được gửi.')
-          setTimeout(() => {
-            window.location.href = '/payment-success'
-          }, 2000)
-        } else {
-          alert('Đã ghi nhận thanh toán thất bại. Vui lòng thử lại.')
+      const result = await response.json()
+      if (result.success) {
+        setCourses(result.data)
+        if (result.data.length > 0) {
+          setSelectedCourse(result.data[0])
         }
-      } else {
-        throw new Error('Failed to send email')
       }
     } catch (error) {
-      console.error('Error sending confirmation:', error)
-      alert('Có lỗi xảy ra. Vui lòng thử lại.')
-    } finally {
-      setIsProcessing(false)
+      console.error('Failed to fetch courses:', error)
     }
   }
 
+  // Timer effect
   useEffect(() => {
     if (!showQR) return
 
@@ -149,7 +54,7 @@ const PaymentPage = () => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           setShowQR(false)
-          return 15 * 60 // Reset to 15 minutes
+          return 15 * 60
         }
         return prev - 1
       })
@@ -158,15 +63,164 @@ const PaymentPage = () => {
     return () => clearInterval(timer)
   }, [showQR])
 
+  // Polling effect
+  useEffect(() => {
+    let interval
+    if (showQR && paymentStatus !== 'success') {
+      interval = setInterval(() => {
+        checkPaymentStatus()
+      }, 5000)
+    }
+    return () => clearInterval(interval)
+  }, [showQR, paymentStatus, formData.email, selectedCourse])
+
+  const checkPaymentStatus = async () => {
+    if (!formData.email || !selectedCourse) return
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/course-registrations/check-status?email=${encodeURIComponent(formData.email)}&course_code=${encodeURIComponent(selectedCourse.course_code)}`,
+        { headers: { 'Accept': 'application/json' } }
+      )
+      const result = await response.json()
+      if (result.success && result.status === 'paid') {
+        setPaymentStatus('success')
+
+        // Track purchase event
+        TagManager.dataLayer({
+          dataLayer: {
+            event: 'purchase',
+            ecommerce: {
+              transaction_id: result.registration_id,
+              value: selectedCourse.current_price || 999000,
+              currency: 'VND',
+              items: [{
+                item_name: selectedCourse.title,
+                category: 'Khóa học',
+                price: selectedCourse.current_price || 999000,
+                quantity: 1
+              }]
+            }
+          }
+        })
+
+        // Success redirect or message
+        setTimeout(() => {
+          window.location.href = '/payment-success' // Adjust if needed
+        }, 3000)
+      }
+    } catch (error) {
+      console.error('Status check error:', error)
+    }
+  }
+
+  const validateField = (name, value) => {
+    let error = ''
+    if (!value || value.trim() === '') {
+      switch (name) {
+        case 'name': error = 'Vui lòng nhập họ và tên'; break
+        case 'email': error = 'Vui lòng nhập email'; break
+        case 'phone': error = 'Vui lòng nhập số điện thoại'; break
+      }
+    } else if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+      error = 'Email không hợp lệ'
+    } else if (name === 'phone' && !/(0[3-9][0-9]{8}|84[3-9][0-9]{8})/.test(value.replace(/[^0-9+]/g, ''))) {
+      error = 'Số điện thoại không hợp lệ'
+    }
+    setErrors(prev => ({ ...prev, [name]: error }))
+    return error === ''
+  }
+
+  const isFormValid = () => {
+    return formData.name.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.phone.trim() !== '' &&
+      errors.name === '' &&
+      errors.email === '' &&
+      errors.phone === '' &&
+      selectedCourse !== null
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    validateField(name, value)
+  }
+
+  const handleRegister = async () => {
+    if (!isFormValid()) return
+
+    setIsProcessing(true)
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/landing/register`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          course_code: selectedCourse.course_code
+        })
+      })
+      const result = await response.json()
+      if (result.success) {
+        setRegistrationData(result.data)
+        setShowQR(true)
+
+        // Track lead generation
+        trackLead({
+          type: 'registration_initiated',
+          email: formData.email,
+          phone: formData.phone,
+          name: formData.name,
+          course: selectedCourse.title,
+          status: 'pending'
+        })
+
+        // Track checkout initiation
+        trackBeginCheckout(result.data.amount, [{
+          item_name: selectedCourse.title,
+          category: 'Khóa học',
+          price: result.data.amount,
+          quantity: 1
+        }])
+      } else {
+        alert('Đăng ký không thành công: ' + JSON.stringify(result.errors || result.message || 'Lỗi hệ thống'))
+      }
+    } catch (error) {
+      console.error('Registration error:', error)
+      alert('Có lỗi xảy ra khi kết nối máy chủ.')
+    } finally {
+      setIsProcessing(false)
+    }
+  }
+
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60)
     const secs = seconds % 60
     return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`
   }
+
+  if (paymentStatus === 'success') {
+    return (
+      <div className="min-h-screen bg-background text-white flex items-center justify-center p-8">
+        <div className="max-w-md w-full bg-white/10 backdrop-blur-lg rounded-3xl p-12 text-center">
+          <CheckCircle2 className="w-24 h-24 text-green-500 mx-auto mb-6" />
+          <h1 className="text-4xl font-black mb-4">Thành công!</h1>
+          <p className="text-xl text-gray-300 mb-8">
+            Chúng tôi đã nhận được thanh toán của bạn cho khóa học <strong>{selectedCourse?.title}</strong>.
+          </p>
+          <p className="text-gray-400">Đang chuẩn bị trang truy cập vào khóa học...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-background text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <button 
+        <button
           onClick={() => window.history.back()}
           className="flex items-center gap-2 text-white/70 hover:text-white mb-8"
         >
@@ -176,152 +230,141 @@ const PaymentPage = () => {
 
         <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8">
           <h1 className="text-4xl font-black mb-6">Thanh toán khóa học</h1>
-          
+
           <div className="space-y-6">
             <div className="border border-white/20 rounded-xl p-6">
-              <h2 className="text-2xl font-bold mb-4">Tự động hóa công việc bằng AI</h2>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-gray-300">Giá gốc:</span>
-                <span className="line-through text-gray-400">3.999.000đ</span>
-              </div>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-gray-300">Giá ưu đãi:</span>
-                <span className="text-3xl font-black text-yellow-400">999.000đ</span>
-              </div>
+              <h2 className="text-2xl font-bold mb-4">
+                {selectedCourse ? selectedCourse.title : 'Đang tải thông tin khóa học...'}
+              </h2>
+              {selectedCourse && (
+                <>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-gray-300">Giá gốc:</span>
+                    <span className="line-through text-gray-400">
+                      {new Intl.NumberFormat('vi-VN').format(selectedCourse.sale_price || selectedCourse.regular_price)}đ
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-gray-300">Giá ưu đãi:</span>
+                    <span className="text-3xl font-black text-yellow-400">
+                      {new Intl.NumberFormat('vi-VN').format(selectedCourse.current_price)}đ
+                    </span>
+                  </div>
+                </>
+              )}
               <div className="text-red-400 text-sm font-bold">
-                ⚠️ Ưu đãi chỉ còn 09 suất cuối cùng
+                ⚠️ Ưu đãi chỉ còn lại một vài suất cuối cùng
               </div>
-            </div>
-
-            <div className="border border-white/20 rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4">Thông tin thanh toán</h3>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Họ và tên</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${
-                      errors.name ? 'border-red-500' : 'border-white/20'
-                    }`}
-                    placeholder="Nhập họ và tên của bạn"
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${
-                      errors.email ? 'border-red-500' : 'border-white/20'
-                    }`}
-                    placeholder="Nhập email của bạn"
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Số điện thoại</label>
-                  <input 
-                    type="tel" 
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${
-                      errors.phone ? 'border-red-500' : 'border-white/20'
-                    }`}
-                    placeholder="Nhập số điện thoại của bạn"
-                  />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                  )}
-                </div>
-              </form>
             </div>
 
             {!showQR ? (
-              <button 
-                onClick={() => {
-                  if (!isFormValid()) {
-                    return
-                  }
-                  // Track checkout initiation
-                  trackBeginCheckout(999000, [{
-                    item_name: 'Tự động hóa công việc bằng AI',
-                    category: 'Khóa học',
-                    price: 999000,
-                    quantity: 1
-                  }])
-                  setShowQR(true)
-                }}
-                disabled={!isFormValid()}
-                className={`w-full font-black py-6 rounded-2xl text-xl transition-all ${
-                  isFormValid() 
-                    ? 'bg-yellow-400 text-black hover:bg-yellow-300' 
-                    : 'bg-gray-400 text-gray-600 cursor-not-allowed'
-                }`}
-              >
-                TIẾN HÀNH THANH TOÁN
-              </button>
-            ) : (
-              <div className="border border-white/20 rounded-xl p-6 text-center">
-                <div className="flex justify-center mb-4">
-                  <QrCode className="w-32 h-32 text-white" />
+              <>
+                <div className="border border-white/20 rounded-xl p-6">
+                  <h3 className="text-xl font-bold mb-4">Thông tin thanh toán</h3>
+                  <form className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Họ và tên</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${errors.name ? 'border-red-500' : 'border-white/20'
+                          }`}
+                        placeholder="Nhập họ và tên của bạn"
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${errors.email ? 'border-red-500' : 'border-white/20'
+                          }`}
+                        placeholder="Nhập email của bạn"
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Số điện thoại</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 ${errors.phone ? 'border-red-500' : 'border-white/20'
+                          }`}
+                        placeholder="Nhập số điện thoại của bạn"
+                      />
+                      {errors.phone && (
+                        <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                      )}
+                    </div>
+                  </form>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Quét mã QR để thanh toán</h3>
-                <p className="text-gray-300 mb-4">Số tiền: <span className="text-yellow-400 font-black text-2xl">999.000đ</span></p>
-                <div className="bg-white p-4 rounded-xl inline-block">
-                  <img src="/qrtk.png" alt="QR Code Thanh toán" className="w-64 h-64" />
-                </div>
-                <div className="border border-white/20 rounded-xl p-6 mt-6 text-left">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-300">Ngân hàng:</span>
-                    <span className="font-bold">TPBANK</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-300">Số tài khoản:</span>
-                    <span className="font-bold">05261994118</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-300">Chủ tài khoản:</span>
-                    <span className="font-bold">PHAM QUANG DAT</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-300">Số tiền:</span>
-                    <span className="font-bold text-yellow-400">999.000 đ</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Nội dung CK:</span>
-                    <span className="font-bold">AIA 0213543245</span>
-                  </div>
-                </div>
-                <div className="flex gap-4 mt-6">
-                  <button 
-                    onClick={() => sendPaymentConfirmation('success')}
-                    disabled={isProcessing}
-                    className="flex-1 bg-green-500 text-white font-black py-4 rounded-xl hover:bg-green-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isProcessing ? 'Đang xử lý...' : 'XÁC NHẬN ĐÃ THANH TOÁN'}
-                  </button>
-                 
-                </div>
-                <p className="text-sm text-gray-400 mt-4">
-                  Vui lòng thanh toán trong vòng: <span className="text-red-400 font-bold">{formatTime(timeLeft)}</span>
-                </p>
-                <button 
-                  onClick={() => setShowQR(false)}
-                  className="mt-4 text-white/70 hover:text-white underline"
+                <button
+                  onClick={handleRegister}
+                  disabled={!isFormValid() || isProcessing}
+                  className={`w-full font-black py-6 rounded-2xl text-xl transition-all ${isFormValid() && !isProcessing
+                    ? 'bg-yellow-400 text-black hover:bg-yellow-300 shadow-[0_0_30px_rgba(250,204,21,0.3)]'
+                    : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
+                    }`}
                 >
-                  Quay lại thông tin thanh toán
+                  {isProcessing ? 'ĐANG XỬ LÝ...' : 'TIẾN HÀNH THANH TOÁN'}
                 </button>
+              </>
+            ) : (
+              <div className="border border-white/20 rounded-xl p-6 text-center space-y-6">
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 bg-white rounded-2xl">
+                    <img
+                      src={registrationData?.qr_image_url}
+                      alt="QR Code Thanh toán"
+                      className="w-64 h-64"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Quét mã QR để thanh toán</h3>
+                  <p className="text-gray-300">
+                    Số tiền: <span className="text-yellow-400 font-black text-3xl">
+                      {new Intl.NumberFormat('vi-VN').format(registrationData?.amount)} đ
+                    </span>
+                  </p>
+                </div>
+
+                <div className="border border-white/10 bg-white/5 rounded-2xl p-6 text-left space-y-3">
+                  <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                    <span className="text-gray-400">Nội dung chuyển khoản:</span>
+                    <span className="font-black text-yellow-400 text-lg">{registrationData?.transfer_content}</span>
+                  </div>
+                  <p className="text-[10px] text-gray-500 italic text-center !mt-4 uppercase tracking-widest">
+                    Vui lòng giữ nguyên nội dung chuyển khoản để hệ thống tự động kích hoạt
+                  </p>
+                </div>
+
+                <div className="space-y-4 pt-4">
+                  <div className="flex items-center justify-center gap-3 text-secondary animate-pulse font-bold">
+                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                    Đang chờ xác nhận thanh toán...
+                  </div>
+                  <p className="text-sm text-gray-400">
+                    Mã QR sẽ hết hạn sau: <span className="text-red-400 font-mono text-lg font-bold">{formatTime(timeLeft)}</span>
+                  </p>
+                  <button
+                    onClick={() => setShowQR(false)}
+                    className="text-white/50 hover:text-white underline text-sm"
+                  >
+                    Quay lại sửa thông tin
+                  </button>
+                </div>
               </div>
             )}
           </div>
