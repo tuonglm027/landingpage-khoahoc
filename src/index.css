@@ -24,7 +24,15 @@
 }
 
 .text-glow-yellow {
-    text-shadow: 0 0 10px rgba(250, 204, 21, 0.8), 0 0 20px rgba(250, 204, 21, 0.4);
+    text-shadow: 0 0 15px rgba(250, 204, 21, 0.8),
+        0 0 30px rgba(250, 204, 21, 0.4),
+        0 0 45px rgba(250, 204, 21, 0.2);
+}
+
+.text-glow-purple {
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.8),
+        0 0 30px rgba(168, 85, 247, 0.4),
+        0 0 45px rgba(168, 85, 247, 0.2);
 }
 
 .glow-yellow-badge {
@@ -43,7 +51,7 @@
 }
 
 .card-dark {
-    @apply bg-[#0C0C0C] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all;
+    @apply bg-[#161616] border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all;
 }
 
 .gradient-text-red {
