@@ -18,7 +18,7 @@ export const CurriculumSection = () => {
                             className="card-dark group border-white/5 hover:border-transparent transition-all gradient-border-animated"
                         >
                             <span className="text-4xl font-black text-white/20 group-hover:text-secondary/30 transition-colors block mb-4">{m.id}</span>
-                            <h3 className="text-xl font-black mb-4 flex items-center gap-3">
+                            <h3 className="text-lg md:text-xl font-black mb-4 flex items-center justify-center lg:justify-start gap-3">
                                 {m.title}
                                 <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity text-secondary" size={18} />
                             </h3>

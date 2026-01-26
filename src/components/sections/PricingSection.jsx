@@ -77,7 +77,7 @@ export const PricingSection = () => {
               <div className="space-y-4">
                 <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">
                   CHỈ CÒN{' '}
-                  <span className="text-secondary text-glow-yellow text-7xl md:text-9xl block mt-2">
+                  <span className="text-secondary text-glow-yellow text-5xl md:text-9xl block mt-2">
                     {course ? formatPrice(course.current_price) : '...'}
                   </span>
                 </h3>

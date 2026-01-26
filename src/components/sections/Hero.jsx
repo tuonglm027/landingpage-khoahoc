@@ -37,7 +37,7 @@ export const Hero = () => {
                 </div>
 
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-[1.2] tracking-tight text-white uppercase">
-                    <span className="text-red-600 text-glow-red italic block transform -skew-x-6 uppercase font-montserrat text-4xl md:text-6xl lg:text-7xl">90% người học n8n đang</span>
+                    <span className="text-red-600 text-glow-red italic block transform -skew-x-6 uppercase font-montserrat text-2xl md:text-6xl lg:text-7xl">90% người học n8n đang</span>
                     <br />
                     lãng phí thời gian của họ.
                 </h1>

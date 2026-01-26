@@ -30,7 +30,7 @@ export const AndromedaSystem = () => {
                         Vấn đề lớn nhất là:
                     </div>
 
-                    <h2 className="text-3xl md:text-[3rem] lg:text-[3rem] font-black mb-10 leading-tight uppercase">
+                    <h2 className="text-2xl md:text-[3rem] lg:text-[3rem] font-black mb-10 leading-tight uppercase">
                         BẠN ĐANG RƠI VÀO <br />
                         CẠM BẪY SAO CHÉP
                     </h2>
@@ -45,7 +45,7 @@ export const AndromedaSystem = () => {
                 </motion.div>
 
                 <div className="pt-12">
-                    <h2 className="text-3rem md:text-[3rem] lg:text-[3rem] font-black mb-12 leading-tight uppercase">
+                    <h2 className="text-2xl md:text-[3rem] lg:text-[3rem] font-black mb-12 leading-tight uppercase">
                         TẠI SAO CÁCH HỌC CŨ <br /> LẠI KHIẾN BẠN <span className="text-primary text-glow-red">THẤT BẠI?</span>
                     </h2>
 

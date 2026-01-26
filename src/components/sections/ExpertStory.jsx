@@ -14,7 +14,7 @@ export const ExpertStory = () => {
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="text-4xl md:text-[4.5rem] font-black mb-12 uppercase leading-tight"
+                        className="text-2xl md:text-[4.5rem] font-black mb-12 uppercase leading-tight"
                     >
                         TÔI ĐÃ MẤT <span className="text-primary text-glow-red italic">100 TRIỆU</span> TIỀN TOKEN <br />
                         ĐỂ NHẬN RA BÀI HỌC NÀY...
@@ -38,7 +38,7 @@ export const ExpertStory = () => {
                 <div className="pt-24 border-t border-white/5">
                     <div className="text-center mb-20">
                         <p className="text-secondary font-black uppercase tracking-[0.4em] text-sm mb-4">The Expert</p>
-                        <h2 className="text-4xl md:text-6xl font-black text-white">VỀ PHẠM QUẢNG ĐẠT</h2>
+                        <h2 className="text-3xl md:text-6xl font-black text-white">VỀ PHẠM QUẢNG ĐẠT</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -57,12 +57,13 @@ export const ExpertStory = () => {
                                     </div>
 
                                     {/* Stats Badges - Now outside overflow-hidden but inside aspect container */}
-                                    <StatBadge text="Ex PM Lead One Mount" top="10%" right="-8%" />
-                                    <StatBadge text="Ex Tech Lead Viettel" top="40%" right="-12%" />
-                                    <StatBadge text="Founder KhoahocAI.pro" bottom="20%" right="-8%" />
-                                    <StatBadge text="Founder XCEL BOT" top="20%" left="-8%" />
-                                    <StatBadge text="x10 Traffic Growth" bottom="30%" left="-12%" />
-                                    <StatBadge text="HUST & NEU Background" bottom="10%" left="2%" />
+                                    {/* Stats Badges - Adjusted for mobile to prevent overflow */}
+                                    <StatBadge text="Ex PM Lead One Mount" top="5%" right="-2%" />
+                                    <StatBadge text="Ex Tech Lead Viettel" top="35%" right="-5%" />
+                                    <StatBadge text="Founder KhoahocAI.pro" bottom="15%" right="-2%" />
+                                    <StatBadge text="Founder XCEL BOT" top="15%" left="-2%" />
+                                    <StatBadge text="x10 Traffic Growth" bottom="25%" left="-5%" />
+                                    <StatBadge text="HUST & NEU Background" bottom="5%" left="2%" />
                                 </div>
                             </div>
                         </div>

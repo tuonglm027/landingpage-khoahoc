@@ -45,7 +45,7 @@ export const SectionTitle = ({ subtitle, title, highlight, highlight2, newLine }
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
             }}
-            className="text-3xl md:text-[3.75rem] font-black leading-tight text-white uppercase"
+            className="text-2xl md:text-[3.75rem] font-black leading-tight text-white uppercase"
         >
             {title} {newLine ? <br /> : <br className="md:hidden" />} <span className="text-secondary text-glow-yellow italic">{highlight}</span>{highlight2 && <><br /><span className="text-secondary text-glow-yellow italic">{highlight2}</span></>}
         </motion.h2>

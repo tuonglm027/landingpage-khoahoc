@@ -46,14 +46,24 @@ export const Support = () => {
 
 
         {/* SUPPORT CARD */}
-        <div className="relative max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 text-left shadow-[0_0_60px_rgba(59,130,246,0.15)]">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
-              <img src="/logos/Logo Zalo Arc.png" alt="zalo" className="w-14 h-14 object-contain" />
+        <div className="relative max-w-3xl mx-auto bg-[#111] border border-white/5 rounded-[32px] p-8 md:p-12 text-left shadow-[0_0_80px_rgba(59,130,246,0.1)] overflow-hidden group">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl -z-10 group-hover:bg-blue-500/20 transition-all" />
+
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+            <div className="relative shrink-0">
+              <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
+              <div className="w-20 h-20 rounded-full bg-white p-1.5 flex items-center justify-center relative z-10 shadow-[0_15px_35px_rgba(59,130,246,0.3)] border-4 border-blue-500/20">
+                <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <img src="/logos/zalo-logo.png" alt="zalo" className="w-full h-full object-cover scale-110" />
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl md:text-2xl font-black text-white">
-              HỖ TRỢ TRỰC TIẾP QUA ZALO
-            </h3>
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                HỖ TRỢ TRỰC TIẾP QUA ZALO
+              </h3>
+              <p className="text-blue-400 font-bold text-sm uppercase tracking-[0.2em]">Cùng chuyên gia n8n & AI</p>
+            </div>
           </div>
 
           <p className="text-gray-400 leading-relaxed mb-6">

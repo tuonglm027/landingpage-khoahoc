@@ -16,6 +16,7 @@ import { BonusSection } from './components/sections/BonusSection'
 import { PricingSection } from './components/sections/PricingSection'
 import { GuaranteeSection } from './components/sections/GuaranteeSection'
 import { Footer } from './components/layout/Footer'
+import { StickyCTA } from './components/layout/StickyCTA'
 import { Support } from './components/sections/Support'
 import { Notification } from './components/layout/Notification'
 import PaymentPage from './pages/PaymentPage'
@@ -53,6 +54,7 @@ function HomePage() {
 
             <Footer />
             <Notification />
+            <StickyCTA />
         </main>
     )
 }

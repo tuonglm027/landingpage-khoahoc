@@ -33,7 +33,7 @@ export const StepsSection = () => {
                             <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-300">
                                 {step.icon}
                             </div>
-                            <h3 className="text-xl font-black mb-3 text-glow-yellow text-white">Bước {i + 1}: {step.title}</h3>
+                            <h3 className="text-lg md:text-xl font-black mb-3 text-glow-yellow text-white">Bước {i + 1}: {step.title}</h3>
                         </motion.div>
                     ))}
                 </div>
