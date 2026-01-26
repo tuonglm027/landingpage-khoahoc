@@ -4,6 +4,8 @@ import { SectionTitle } from '../shared'
 import { MessageCircle, Star } from 'lucide-react'
 
 export const TestimonialsGrid = () => {
+    const [showAll, setShowAll] = React.useState(false)
+    
     const feedbacks = [
         { name: "Học viên Xuân Trường", role: "Manager tại Techhub", msg: "Khóa học rất thực chiến, mình đã áp dụng n8n để tự động hóa quy trình chăm sóc khách hàng giúp tiết kiệm 70% thời gian." },
         { name: "Chị Minh Anh", role: "Marketing Agency Owner", msg: "Tư duy hệ thống mà anh Đạt chia sẻ thực sự là chìa khóa. Trước đây mình toàn copy template mà không hiểu tại sao lại chạy như vậy." },
@@ -18,6 +20,8 @@ export const TestimonialsGrid = () => {
         { name: "Chị Phương Linh", role: "COO tại Startup", msg: "Mình đã giải phóng được sức lao động cho 3 nhân sự nhờ hệ thống automation này. Sự đầu tư cực kỳ xứng đáng." },
         { name: "Anh Minh Quang", role: "Content Creator", msg: "Đáng đồng tiền bát gạo, một trong những khóa học AI chất lượng nhất mình từng học. Giờ mình đã làm chủ được AI." },
     ]
+
+    const displayFeedbacks = showAll ? feedbacks : feedbacks.slice(0, 3)
 
     return (
         <section className="py-24 bg-[#050505] overflow-hidden">
@@ -41,7 +45,7 @@ export const TestimonialsGrid = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: (i % 3) * 0.1 }}
-                            className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 hover:border-green-500/30 transition-all hover:bg-white/[0.05] group flex flex-col justify-between"
+                            className={`bg-white/[0.03] border border-white/10 rounded-2xl p-8 hover:border-green-500/30 transition-all hover:bg-white/[0.05] group flex flex-col justify-between ${i >= 3 && !showAll ? 'hidden md:block' : ''}`}
                         >
                             <div>
                                 <div className="flex justify-between items-start mb-6">
@@ -70,6 +74,18 @@ export const TestimonialsGrid = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* View More Button - Only show on mobile */}
+                {!showAll && (
+                    <div className="md:hidden mt-8 flex justify-center">
+                        <button
+                            onClick={() => setShowAll(true)}
+                            className="bg-white/[0.05] border border-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/[0.1] transition-all"
+                        >
+                            Xem thêm {feedbacks.length - 3} feedback
+                        </button>
+                    </div>
+                )}
 
                 <div className="mt-20 flex justify-center text-center">
                     <a

@@ -3,16 +3,6 @@ import { motion } from 'framer-motion'
 import { BarChart3, AlertTriangle } from 'lucide-react'
 import { StatBox } from '../shared'
 
-const PulsingDot = ({ cx, cy, delay = 0 }) => (
-    <motion.circle
-        cx={cx} cy={cy} r="6" fill="#EF4444"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        animate={{ scale: [1, 1.8, 1], opacity: [0.5, 1, 0.5] }}
-        transition={{ repeat: Infinity, duration: 2, delay }}
-        className="drop-shadow-[0_0_10px_#EF4444]"
-    />
-)
 
 export const ProblemSection = () => {
     return (
@@ -72,40 +62,37 @@ export const ProblemSection = () => {
                     </div>
 
                     {/* Graph Section */}
-                    <div className="p-6 md:p-10 bg-[#0A0A0A]">
-                        <div className="flex justify-between items-center mb-8">
-                            <h5 className="text-sm font-bold text-gray-400">Thời gian xử lý thủ công (Giờ/Ngày)</h5>
+                    <div className="p-4 sm:p-6 md:p-10 bg-[#0A0A0A]">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-2">
+                            <h5 className="text-xs sm:text-sm font-bold text-gray-400">Thời gian xử lý thủ công (Giờ/Ngày)</h5>
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary" />
-                                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Lãng phí thời gian</span>
+                                <span className="text-[8px] sm:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Lãng phí thời gian</span>
                             </div>
                         </div>
 
-                        <div className="h-48 md:h-64 relative">
+                        <div className="h-40 sm:h-48 md:h-64 relative">
                             {/* Grid lines */}
                             <div className="absolute inset-0 flex flex-col justify-between">
                                 {[1, 2, 3, 4].map(i => <div key={i} className="w-full h-px bg-white/[0.03]" />)}
                             </div>
 
                             {/* The Line */}
-                            <svg className="w-full h-full relative z-10 overflow-visible">
+                            <svg className="w-full h-full relative z-10 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
                                 <motion.path
-                                    d="M 10 180 C 150 170, 350 140, 500 130 S 750 90, 900 80 S 1100 50, 1200 40"
+                                    d="M 5 80 C 20 75, 40 60, 50 55 S 70 40, 80 35 S 90 25, 95 20"
                                     fill="none"
                                     stroke="#EF4444"
-                                    strokeWidth="4"
+                                    strokeWidth="0.5"
                                     initial={{ pathLength: 0 }}
                                     whileInView={{ pathLength: 1 }}
                                     transition={{ duration: 2, ease: "easeInOut" }}
                                     className="drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"
                                 />
-                                <PulsingDot cx="250" cy="155" delay={0.5} />
-                                <PulsingDot cx="500" cy="130" delay={1} />
-                                <PulsingDot cx="900" cy="80" delay={1.5} />
                             </svg>
 
-                            <div className="absolute bottom-[-20px] left-0 text-[10px] text-gray-600 font-bold">30 ngày trước</div>
-                            <div className="absolute bottom-[-20px] right-0 text-[10px] text-gray-600 font-bold">Hôm nay</div>
+                            <div className="absolute bottom-[-15px] sm:bottom-[-20px] left-0 text-[8px] sm:text-[10px] text-gray-600 font-bold">30 ngày trước</div>
+                            <div className="absolute bottom-[-15px] sm:bottom-[-20px] right-0 text-[8px] sm:text-[10px] text-gray-600 font-bold">Hôm nay</div>
                         </div>
                     </div>
 

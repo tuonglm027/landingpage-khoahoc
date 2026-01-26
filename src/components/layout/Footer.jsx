@@ -7,9 +7,6 @@ export const Footer = () => (
         <div className="relative z-10">
             <div className="text-4xl md:text-[4.5rem] font-black text-secondary mb-10 italic tracking-tighter">Khoahocai<span className="text-white">.pro</span></div>
             <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 text-base text-gray-400 font-bold uppercase tracking-widest px-4">
-                <a href="#" className="hover:text-white p-3 min-w-[48px] min-h-[48px] flex items-center justify-center">Điều khoản</a>
-                <a href="#" className="hover:text-white p-3 min-w-[48px] min-h-[48px] flex items-center justify-center">Bảo mật</a>
-                <a href="#" className="hover:text-white p-3 min-w-[48px] min-h-[48px] flex items-center justify-center">Liên hệ</a>
             </div>
 
             <div className="flex items-center justify-center gap-2 text-gray-700 text-[10px] uppercase font-bold tracking-[0.3em]">
